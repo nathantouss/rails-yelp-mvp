@@ -7,3 +7,20 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+
+puts "Cleaning database..."
+Restaurant.destroy_all
+
+(1..10).each do
+  Restaurant.create!(
+    name: Faker::Lorem.word,
+    address: Faker::Address.street_address,
+    category: %w[chinese italian japanese french belgian].sample,
+    phone_number: Faker::PhoneNumber.phone_number
+  )
+end
+
+puts "Finished!"
+
+# rating: Faker::Number.within(range: 0..5),

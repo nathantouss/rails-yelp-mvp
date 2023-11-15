@@ -1,0 +1,21 @@
+<h1>Restaurants</h1> <%= link_to 'New Restaurant', new_restaurant_path, class: 'btn btn-success' %>
+<br>
+<br>
+
+<div class="row">
+  <% @restaurants.each do |restaurant| %>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= restaurant.name.capitalize %></h5>
+          <p class="card-text"><strong>Location:</strong> <%= restaurant.address %></p>
+          <p class="card-text"><strong>Cuisine:</strong> <%= restaurant.category %></p>
+          <!-- Add more restaurant attributes as needed -->
+
+          <!-- Add links to show, edit, and delete actions for each restaurant -->
+          <%= link_to 'View Details', restaurant_path(restaurant), class: 'btn btn-primary btn-sm' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
